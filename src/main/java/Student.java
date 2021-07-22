@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Student {
 
@@ -23,6 +24,21 @@ public class Student {
     public void addGrade(int grade) {
         grades.add(grade);
     }
+
+    // TODO: updateGrade(int newGrade){} --> Find lowest grade and update to newGrade
+    // TODO: deleteGrade() --> Find lowest grade and drop from the grades list
+
+    public void updateGrade (int newGrade) {
+        Collections.sort(grades);
+        grades.set(0, newGrade);
+    }
+
+
+    public void deleteGrade () {
+        Collections.sort(grades);
+        grades.remove(0);
+    }
+
 
     public ArrayList<Integer> getGrades() {
         return this.grades;

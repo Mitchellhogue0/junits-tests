@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -49,6 +50,37 @@ public class StudentTest {
         assertEquals(80, fer.getGradeAverage(), 0);
         fer.addGrade(50); // 210 / 3 = 70
         assertEquals(70, fer.getGradeAverage(), 0);
+    }
+
+    // TODO: test to make sure that updateGrade works -> use getGradeAverage() to do so.
+    //  getGradeAverage() should be what you would expect from updating the lowest grade
+
+    // TODO: do the same for deleteGrade() -> make sure it is deleted by testing the size
+    //  of the grades list and checking the new average
+
+
+    @Test
+    public void testIfUpdateGradeWorks() {
+        Student fer = new Student(1L, "fer");
+        fer.addGrade(90);
+        fer.addGrade(70);
+        fer.addGrade(80);
+
+        fer.updateGrade(100);
+
+        Assert.assertEquals(90, fer.getGradeAverage(), 0);
+    }
+
+    @Test
+    public void testIfDeleteGradeWorks() {
+        Student fer = new Student(1L, "fer");
+        fer.addGrade(90);
+        fer.addGrade(70);
+        fer.addGrade(80);
+
+        fer.deleteGrade();
+
+        Assert.assertEquals(2, fer.getGrades().size());
     }
 
 }
